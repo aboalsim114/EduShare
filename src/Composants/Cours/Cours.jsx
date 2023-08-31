@@ -88,6 +88,10 @@ export default function Cours() {
                             <br />
                             
                             <div className="row">
+                            {cours.length === 0 && (
+                                <h2>Il n'y a pas de cours pour le moment</h2>
+                                
+                            )}
                                 {cours.map((cour) => (
                                     
                                     <div className="product-list col-xs-12" >
