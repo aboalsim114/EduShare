@@ -10,6 +10,7 @@ import Inscription from './Composants/Inscription/Inscription.jsx';
 import Logout from './Composants/Logout/Logout.jsx';
 import Cours from './Composants/Cours/Cours.jsx';
 import Cour from './Composants/Cours/Cour/Cour.jsx';
+import Dashboard from './Composants/Admin/Dashboard.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ root.render(
           <Route path="/Logout" element={<Logout />} />
           <Route path="/cours/:userid" element={<Cours />} />
           <Route path="/cour/:cour_id" element={<Cour />} />
+          <Route path="/admin/:userid" element={<Dashboard />} />
           </Route>
 
        </Routes>

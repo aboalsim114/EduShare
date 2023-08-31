@@ -10,6 +10,7 @@ export default function Navbar() {
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userid");
   const [userdata, setUserData] = useState([]);
+  const is_superuser = localStorage.getItem("is_superuser");
 
   useEffect(() => {
     if (userId) {
@@ -36,7 +37,7 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {
-            !token  && !userId ? (
+            !token  && !userId  ? (
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link className="nav-link" to="/">Acceuil</Link>
@@ -49,15 +50,16 @@ export default function Navbar() {
                 </li>
               </ul>
             )
+            
               :
               (
                 <>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                    <li className="nav-item">
-                    <Link className="nav-link" to={`/cours/${userId}`}>Voir des cours</Link>
+                  {is_superuser === "false" &&  <Link className="nav-link" to={`/cours/${userId}`}>Voir des cours</Link> } 
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to={`/profile/${userId}`}> <CgProfile /> Mon Profile</Link>
+                   {is_superuser === "false" &&  <Link className="nav-link" to={`/profile/${userId}`}> <CgProfile /> Mon Profile</Link>}
                   </li>
                   
                 </ul>
