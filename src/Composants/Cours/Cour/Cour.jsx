@@ -105,11 +105,11 @@ export default function Cour() {
                             <tbody>
                                 <tr>
                                     <td width="390">pseudo</td>
-                                    <td>{authors[Data.auteur]?.username} </td>
+                                    <td>{authors[Data.auteur] ? authors[Data.auteur].username : ""} </td>
                                 </tr>
                                 <tr>
                                     <td>Mail</td>
-                                    <td>{authors[Data.auteur]?.email} </td>
+                                    <td>{authors[Data.auteur] ? authors[Data.auteur].email : ""} </td>
                                 </tr>
                             
                                 <tr>
@@ -118,7 +118,7 @@ export default function Cour() {
                                 </tr>
                                 <tr>
                                     <td>Role</td>
-                                    <td>{authors[Data.auteur]?.is_superuser === true ? "Admin" : "User"}  </td>
+                                    <td>{authors[Data.auteur] ? authors[Data.auteur].is_superuser : ""} </td>
                                 </tr>
                                
                             </tbody>

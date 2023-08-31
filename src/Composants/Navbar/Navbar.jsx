@@ -5,7 +5,7 @@ import axios from "axios";
 import AddCour from "../AddCour.jsx/AddCour";
 import { VscAdd } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
-import { CgLogOut } from "react-icons/cg";
+import { FiLogOut } from "react-icons/fi";
 export default function Navbar() {
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userid");
@@ -28,7 +28,7 @@ export default function Navbar() {
   }, [userId]);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: 'salmon' }}>
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#245' }}>
       <div className="container-fluid">
         <a className="navbar-brand fw-bold" >EduShare</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,14 +59,17 @@ export default function Navbar() {
                   <li className="nav-item">
                     <Link className="nav-link" to={`/profile/${userId}`}> <CgProfile /> Mon Profile</Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to={`/logout`}> <CgLogOut /> se deconnecter  </Link>
-                  </li>
+                  
                 </ul>
                 <div>
                   
+                  <div className="d-flex gap-3 flex-row">
+
                   <button data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-primary text-white"> <VscAdd /> </button>
                   <AddCour />
+                  <Link className="btn btn-danger" to={`/logout`}> <FiLogOut />   </Link>
+                  </div>
+
 
 
                 </div>
