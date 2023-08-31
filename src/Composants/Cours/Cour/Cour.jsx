@@ -130,7 +130,7 @@ export default function Cour() {
     </div>
 </div>
     </div>
-    <Commentaire/>
+   {/*  <Commentaire  /> */}
     </>
   )
 }

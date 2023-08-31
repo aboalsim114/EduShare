@@ -15,7 +15,6 @@ class CoursViewSet(viewsets.ModelViewSet):
     serializer_class = CoursSerializer
 
     
-   
     
     @action(detail=True, methods=["GET"])
     def download(self, request, pk=None):
@@ -49,11 +48,18 @@ class CoursViewSet(viewsets.ModelViewSet):
         
         return Response({"message": "Course saved successfully."}, status=status.HTTP_200_OK)
 
+    @action(detail=False, methods=["DELETE"])
+    def supprimer_tout(self, request):
+        Cours.objects.all().delete()
+        return Response({"message": "Tous les cours ont été supprimés avec succès."}, status=status.HTTP_200_OK)
+   
+
+
 
 
 class UserViewSet(viewsets.ModelViewSet):
    
-
+    
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
@@ -98,7 +104,10 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    
+    @action(detail=False, methods=["DELETE"])
+    def supprimer_tous(self, request):
+        User.objects.all().delete()
+        return Response({"message": "Tous les utilisateurs ont été supprimés avec succès."}, status=status.HTTP_200_OK)
     
 
 class CommentaireViewSet(viewsets.ModelViewSet):

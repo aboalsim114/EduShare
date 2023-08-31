@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,Suspense } from 'react';
 import './Cours.css';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar.jsx";
-
+import Loading from "../Loading/Loading";
 export default function Cours() {
     const userId = localStorage.getItem("userid");
     const [cours, setCours] = useState([]);
@@ -76,24 +76,20 @@ export default function Cours() {
     return (
         <>
             <Navbar />
+        {cours.length === 0 && <Loading message="pas de cours disponible veuillez ajouter un cour " />}
             <div className='Cours'>
-            
                 <div className="container">
-                   
                     <div className="row">
                         <div className="col-sm-3 hidden-xs"></div>
                         <div className="col-sm-9">
                             <div className="row"></div>
-                            
-                            <br />
+        
+                            <br />  
                             
                             <div className="row">
-                            {cours.length === 0 && (
-                                <h2>Il n'y a pas de cours pour le moment</h2>
-                                
-                            )}
+                            
                                 {cours.map((cour) => (
-                                    
+                                    <Suspense fallback={<Loading />}>
                                     <div className="product-list col-xs-12" >
                                         
                                         <div className="product-item ">
@@ -123,6 +119,7 @@ export default function Cours() {
                                             </div>
                                         </div>
                                     </div>
+                                    </Suspense>
                                         
                                 ))}
                             </div>
