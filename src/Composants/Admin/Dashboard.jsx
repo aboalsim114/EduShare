@@ -67,7 +67,7 @@ export default function Dashboard() {
         }
     }
 
-    const truncateTitre= (text, maxLength = 100) => {
+    const truncateTitre= (text, maxLength = 50) => {
         if (text.length <= maxLength) return text;
         return text.slice(0, maxLength) + '...';
     }

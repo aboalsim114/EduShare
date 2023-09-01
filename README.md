@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# EduShare - Plateforme d'éducation en ligne
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+EduShare est une plateforme d'éducation en ligne qui vise à fournir un espace où les utilisateurs peuvent partager, découvrir et télécharger des cours, créés par des étudiants de la même université/école, sur divers sujets. Que vous soyez étudiant, enseignant ou simplement intéressé par l'apprentissage, EduShare est conçu pour vous aider à accéder à une variété de ressources éducatives.
 
-## Available Scripts
+## Fonctionnalités Principales
 
-In the project directory, you can run:
+- **Inscription et Connexion:** Les utilisateurs peuvent créer des comptes et se connecter pour accéder à toutes les fonctionnalités de la plateforme.
 
-### `npm start`
+- **Ajout de Cours:** Les enseignants et les étudiants peuvent ajouter des cours sur différents sujets, accompagnés de descriptions .
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Consultation de Cours:** Les utilisateurs peuvent parcourir la liste des cours disponibles, afficher les détails et les descriptions des cours, ainsi que consulter les commentaires des autres utilisateurs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Téléchargement de Cours:** Les utilisateurs peuvent télécharger des cours au format PDF pour les consulter hors ligne.
 
-### `npm test`
+- **Profils Utilisateurs:** Chaque utilisateur dispose d'un profil personnalisé où il peut mettre à jour ses informations, afficher ses cours ajoutés et consulter ses activités récentes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Commentaires:** Les utilisateurs peuvent laisser des commentaires sur les cours pour partager leurs expériences et poser des questions.
 
-### `npm run build`
+## Technologies Utilisées
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend:** React, React Router, Axios
+- **Backend:** Django, Django REST Framework
+- **Base de données:** Mysql
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Accéder au dossier frontend : `cd frontend`.
+2. Installer les dépendances : `npm install`.
+3. Accéder au dossier backend : `cd backend`.
+4. Créer un environnement virtuel : `python -m venv venv`.
+5. Activer l'environnement virtuel :
+   - Sur Windows : `venv\Scripts\activate`
+   - Sur macOS et Linux : `source venv/bin/activate`
+6. Installer les dépendances : `pip install -r requirements.txt`.
+7. Exécuter les migrations : `python manage.py migrate`.
+8. Lancer le serveur backend : `python manage.py runserver`.
+9. Lancer le serveur frontend : `npm start`.
