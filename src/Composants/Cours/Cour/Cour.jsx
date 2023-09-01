@@ -118,7 +118,7 @@ export default function Cour() {
                                 </tr>
                                 <tr>
                                     <td>Role</td>
-                                    <td>{authors[Data.auteur] ? authors[Data.auteur].is_superuser : ""} </td>
+                                    <td>{authors[Data.auteur] ? authors[Data.auteur].is_superuser === true ? "admin" : "user" : ""} </td>
                                 </tr>
                                
                             </tbody>

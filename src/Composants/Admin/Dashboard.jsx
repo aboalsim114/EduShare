@@ -163,7 +163,7 @@ export default function Dashboard() {
                     <div class="col-sm-4">
                         <div class="card-box tilebox-one"><i class="icon-layers float-right text-muted"></i>
                             <h6 class="text-muted text-uppercase mt-0">Users</h6>
-                            <h2 class="" data-plugin="counterup">{users.length} </h2></div>
+                            <h2 class="" data-plugin="counterup">{users.filter(user => user.is_superuser === false).length} </h2></div>
                     </div>
                   
                     <div class="col-sm-4">
@@ -205,7 +205,7 @@ export default function Dashboard() {
                                       
                                     <td  className='d-flex gap-3'>
                                         <button onClick={() => handleDeleteCour(cour.id)} className='btn btn-danger'><VscTrash /> </button>
-                                       <Link  className='text-white btn btn-primary' to={`/cour/${cour.id}`}><FaEye /></Link> 
+                                       <Link  className='text-white btn btn-primary'  target='_blank' to={`/cour/${cour.id}`}><FaEye /></Link> 
                                     </td>
                                    
 

@@ -45,7 +45,6 @@ export default function Profile() {
         const formData = new FormData();
         formData.append('username', username);
         formData.append('email', email);
-        formData.append('university', universite);
 
 
         try {
@@ -54,7 +53,6 @@ export default function Profile() {
                 setData(response.data);
                 setUsername(response.data.username);
                 setEmail(response.data.email);
-                setUniversite(response.data.university);
                 setSuccess("Modification effectuée");
             }
         } catch (error) {
@@ -77,7 +75,9 @@ export default function Profile() {
                                 <div className="card-header">Profile image </div>
                                 <div className="card-body text-center">
                                 <img onChange={(e) => setUser_image(e.target.files[0])} className="img-account-profile rounded-circle mb-2" src={data.user_image} alt="" />
-                                <div className="small font-italic text-muted mb-4">User Role : {data.is_superuser ? "admin" : "user"} </div>
+                                <div className="large font-italic text-muted mb-4">User Role : {data.is_superuser ? "admin" : "user"} </div>
+                                <div className="large font-italic  mb-4 text-muted    ">Ecole : {data.university} </div>
+                                
                                 </div>
                             </div>
                         </div>
@@ -95,10 +95,7 @@ export default function Profile() {
                                             <input value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" />
                                         </div>
                                  
-                                        <div className="mb-3">
-                                            <label className="small mb-1" htmlFor="university">université / ecole</label>
-                                            <input value={universite} onChange={(e) => setUniversite(e.target.value)} className="form-control" id="university" type="text" placeholder="université/ecole" />
-                                        </div>
+                                     
                                         <div className="mb-3">
                                         <p style={error ? { color: "red" } : { color: "green" }}>
                                         {error ? (typeof error === 'string' ? error : JSON.stringify(error)) : success}
