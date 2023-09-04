@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Cours, User, Commentaires
-from .serializers import CoursSerializer, UserSerializer, CommentaireSerializer
+from .models import Cours, User, Commentaires,Forum
+from .serializers import CoursSerializer, UserSerializer, CommentaireSerializer,ForumSerializer
 from django.contrib.auth import authenticate
 from django.http import FileResponse
 from rest_framework.permissions import IsAuthenticated, BasePermission
@@ -113,3 +113,15 @@ class UserViewSet(viewsets.ModelViewSet):
 class CommentaireViewSet(viewsets.ModelViewSet):
     queryset = Commentaires.objects.all()
     serializer_class = CommentaireSerializer
+
+
+
+
+class ForumViewSet(viewsets.ModelViewSet):
+    queryset = Forum.objects.all()
+    serializer_class = ForumSerializer
+
+    @action(detail=False ,methods=["DELETE"])
+    def supprimer_tout(self,request):
+        Forum.objects.all().delete()
+        return Response({"message": "Tous les messages ont été supprimés avec succès."}, status=status.HTTP_200_OK)

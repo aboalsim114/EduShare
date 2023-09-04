@@ -105,3 +105,17 @@ class Commentaires(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+
+
+class Forum(models.Model):
+    user = models.ForeignKey(User , on_delete=models.CASCADE)
+    message  = models.TextField(null=False , blank=False)
+    created_at = models.DateTimeField(auto_now_add=True) 
+
+
+    def __str__(self) :
+        return self.message
+    
+
+  

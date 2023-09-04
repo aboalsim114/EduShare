@@ -11,6 +11,7 @@ import Logout from './Composants/Logout/Logout.jsx';
 import Cours from './Composants/Cours/Cours.jsx';
 import Cour from './Composants/Cours/Cour/Cour.jsx';
 import Dashboard from './Composants/Admin/Dashboard.jsx';
+import Chat from "./Composants/Messagerie/Chat.jsx"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -26,6 +27,7 @@ root.render(
           <Route path="/cours/:userid" element={<Cours />} />
           <Route path="/cour/:cour_id" element={<Cour />} />
           <Route path="/admin/:userid" element={<Dashboard />} />
+          <Route path="/chat/:userid" element={<Chat />} />
           </Route>
 
        </Routes>

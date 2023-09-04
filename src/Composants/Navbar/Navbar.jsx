@@ -6,6 +6,7 @@ import AddCour from "../AddCour.jsx/AddCour";
 import { VscAdd } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import { FiLogOut } from "react-icons/fi";
+import { BsChatRightDotsFill } from "react-icons/bs";
 export default function Navbar() {
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userid");
@@ -61,19 +62,18 @@ export default function Navbar() {
                   <li className="nav-item">
                    {is_superuser === "false" &&  <Link className="nav-link" to={`/profile/${userId}`}> <CgProfile /> Mon Profile</Link>}
                   </li>
+                  <li className="nav-item">
+                   {is_superuser === "false" &&  <Link className="nav-link" to={`/chat/${userId}`}> <BsChatRightDotsFill /> Discuter</Link>}
+                  </li>
                   
                 </ul>
                 <div>
-                  
-                  <div className="d-flex gap-3 flex-row">
 
+                  <div className="d-flex gap-3 flex-row">
                   <button data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-primary text-white"> <VscAdd /> </button>
                   <AddCour />
                   <Link className="btn btn-danger" to={`/logout`}> <FiLogOut />   </Link>
                   </div>
-
-
-
                 </div>
                 </>
               )

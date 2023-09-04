@@ -1,4 +1,4 @@
-from .models import Cours, User, Commentaires
+from .models import Cours, User, Commentaires,Forum
 from rest_framework import serializers
 from . import models
 
@@ -29,4 +29,11 @@ class UserSerializer(serializers.ModelSerializer):
 class CommentaireSerializer(serializers.ModelSerializer):
     class Meta:
         model = Commentaires
+        fields = "__all__"
+
+
+
+class ForumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Forum
         fields = "__all__"

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function Dashboard() {
     const [users, setUsers] = useState([])
     const [cours, setCours] = useState([])
-    const [commentaires , setCommentaires] = useState([])
+    const [messages , setMessages] = useState([])
     const [authors, setAuthors] = useState({})
     const [error, setError] = useState('');
 
@@ -79,7 +79,6 @@ export default function Dashboard() {
             const response = await axios.get(url)
             if(response.status < 300) {
                 setCours(response.data);
-                // Fetch author for each course
                 response.data.forEach(course => {
                     fetchAuthor(course.auteur);
                 });
@@ -103,14 +102,14 @@ export default function Dashboard() {
 
 
     useEffect(() => {
-        const fetchCommentaires = async () => {
-            let url = "http://127.0.0.1:8000/api/commentaire/"
+        const fetchMessages = async () => {
+            let url = "http://127.0.0.1:8000/api/forum/"
             const response = await axios.get(url)
             if(response.status < 300) {
-                setCommentaires(response.data)
+                setMessages(response.data)
             }
         }
-        fetchCommentaires()
+        fetchMessages()
     }, [])
 
   return (
@@ -174,8 +173,8 @@ export default function Dashboard() {
                 
                     <div class="col-sm-4">
                         <div class="card-box tilebox-one"><i class="icon-rocket float-right text-muted"></i>
-                            <h6 class="text-muted text-uppercase mt-0">Commentaires</h6>
-                            <h2 class="" data-plugin="counterup">{commentaires.length}</h2></div>
+                            <h6 class="text-muted text-uppercase mt-0">messages</h6>
+                            <h2 class="" data-plugin="counterup">{messages.length}</h2></div>
                     </div>
                  
                 </div>
